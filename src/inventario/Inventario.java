@@ -5,6 +5,8 @@
  */
 package inventario;
 
+import vista.Consulta;
+
 /**
  *
  * @author LN710Q
@@ -15,7 +17,8 @@ public class Inventario {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Consulta con=new Consulta();
+        con.main(args);
     }
     
 }

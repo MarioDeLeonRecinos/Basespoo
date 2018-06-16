@@ -36,7 +36,7 @@ public class FiltroDao implements metodos<Filtro> {
             ps = con.getCnx().prepareStatement(SQL_INSERT);
             ps.setString(1, g.getCodigo());
             ps.setString(2, g.getMarca());
-            ps.setString(3, g.getStock);
+            ps.setInt(3, g.getStock());
             ps.setBoolean(4, true);
             if(ps.executeUpdate() > 0){
                 return true;

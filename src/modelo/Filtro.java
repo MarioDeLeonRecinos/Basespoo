@@ -40,5 +40,24 @@ public class Filtro {
         this.stock=stock;
         this.existencia=existencia;
     }
+
+    public String getCodigo() {
+        return codigo;
+    }
+
+    public String getMarca() {
+        return marca; 
+    }
     
+    public int getStock() {
+        return stock;
+    }
+
+    public boolean getExistencia() {
+        return existencia;
+    }
+
+    public void setExistencia(boolean b) {
+        existencia=b;
+    }
 }

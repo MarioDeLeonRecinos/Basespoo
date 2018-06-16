@@ -210,5 +210,46 @@ public class Consulta extends JFrame {
                 }
             }
         });
+        buscar.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                FiltroDao fd = new FiltroDao();
+                Filtro f = fd.read(codigo.getText());
+                if(f == null ){
+                    JOptionPane.showMessageDialog(null, "El filtro buscado no se ha encontrado");
+                }
+                else{
+                    codigo.setText(f.getCodigo());
+                    marca.setSelectedItem(f.getMarca());
+                    stock.setText(Integer.toString(f.getStock()));
+                    
+                    if(f.getExistencia()){
+                        si.setSelected(true);
+                    }
+                    else{
+                        no.setSelected(true);
+                    }
+                }
+            }
+        });
+        limpiar.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e){
+                limpiarCampos();
+            }
+        });
+    }
+    public void limpiarCampos(){
+        codigo.setText("");
+        marca.setSelectedItem("FRAM");
+        stock.setText("");
+    }
+    public static void main(String[] args){
+        java.awt.EventQueue.invokeLater(new Runnable(){
+            @Override
+            public void run(){
+                new Consulta().setVisible(true);
+            }
+        });
     }
 }
